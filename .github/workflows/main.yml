@@ -1,0 +1,39 @@
+name: push to uffizzi
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  repository_dispatch:
+  schedule:
+    - cron: '20 */2 * * *'  # 每3小时执行一次
+
+jobs:
+  auto-generate-and-commit:
+    name: Auto-generate and commit file
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Generate file
+        run: |
+          echo "This is an auto-generated file." > new_file.txt
+          echo "Generated at $(date)" >> new_file.txt
+
+      - name: Configure git
+        run: |
+          git config user.name "${{ secrets.USERNAME }}"
+          git config user.email "${{ secrets.EMAIL }}"
+
+      - name: Commit changes
+        run: |
+          git add new_file.txt
+          git commit -m "Auto-generate new file"
+        
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: main
