@@ -14,7 +14,7 @@ jobs:
     name: Use Remote Workflow to Preview on Uffizzi
     uses: UffizziCloud/preview-action/.github/workflows/reusable.yaml@v2
     with:
-      compose-file-cache-key: ''
+      compose-file-cache-key: '0ad5e9a54f95e41607c714a39e030a63'
       compose-file-cache-path: docker-compose.uffizzi.yml
       server: https://app.uffizzi.com
     permissions:
