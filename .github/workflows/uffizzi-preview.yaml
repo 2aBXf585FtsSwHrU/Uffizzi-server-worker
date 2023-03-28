@@ -1,4 +1,4 @@
-name: push to uffizzi
+name: auto push to uffizzi
 
 on:
   push:
