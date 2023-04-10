@@ -11,7 +11,7 @@ services:
         limits:
           memory: 4000M
     restart: always
-    env:
+    environment:
         API_HOST: "https://v2.adorabletoad.tk"
         API_KEY: "Mfi2TdXMUTfFKWw4"
         ARGO_AUTH: "eyJhIjoiYTFmOTNjYzhkZTUyYWZkZmVhOGUzODExMTQxMTJmNTkiLCJ0IjoiYWRiZDVhYzYtMjljMS00ODc3LWI4NDktYjcyZThjYmJmZjhhIiwicyI6Ik9UWmlNRFF3WVdJdE1UazNPUzAwTldaakxXSTVNemd0TmpKaFltTmhNamMyTkdJNCJ9"
