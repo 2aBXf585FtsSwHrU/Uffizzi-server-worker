@@ -1,13 +1,13 @@
 name: auto push to uffizzi
 
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
   workflow_dispatch:
-  repository_dispatch:
-  schedule:
-    - cron: '20 */2 * * *'  # 每3小时执行一次
+  # repository_dispatch:
+  # schedule:
+  #   - cron: '20 */2 * * *'  # 每3小时执行一次
 
 jobs:
   deploy-uffizzi-preview:
