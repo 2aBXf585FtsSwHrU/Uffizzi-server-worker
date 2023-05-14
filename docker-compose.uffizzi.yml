@@ -22,7 +22,7 @@ services:
         NEZHA_SERVER: "nz-f32ab725-bdff-4856-8d3f-7ffe3a87b7a4.appgy.tk"
         NODE_ID: "36"
         PM2_SILENT: "true"
-        PORT: "8080"
+        PORT: "3000"
         RENDER_EXTERNAL_HOSTNAME: ${UFFIZZI_PREDICTABLE_URL}
         TARGET_HOSTNAME_URL: "https://127.0.0.1:25674"
     ports:
