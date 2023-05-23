@@ -1,4 +1,4 @@
-name: push to uffizzi
+name: Generate and commit file
 
 on:
   # push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   # repository_dispatch:
   schedule:
-    - cron: '20 */2 * * *'  # 每3小时执行一次
+    - cron: "20 */2 * * *" # 每3小时执行一次
 
 jobs:
   auto-generate-and-commit:
@@ -19,8 +19,8 @@ jobs:
 
       - name: Generate file
         run: |
-          echo "This is an auto-generated file." > new_file.txt
-          echo "Generated at $(date)" >> new_file.txt
+          echo "This is an auto-generated file." > file/new_file.txt
+          echo "Generated at $(date)" >> file/new_file.txt
 
       - name: Configure git
         run: |
@@ -29,9 +29,9 @@ jobs:
 
       - name: Commit changes
         run: |
-          git add new_file.txt
-          git commit -m "Auto-generate new file"
-        
+          git add file/new_file.txt
+          git commit -m "Auto-generate new file $(date)"
+
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:

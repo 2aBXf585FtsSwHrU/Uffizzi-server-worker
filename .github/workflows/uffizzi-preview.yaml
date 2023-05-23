@@ -1,22 +1,21 @@
-name: auto push to uffizzi
+name: Build Images and Handle Uffizzi Previews.
 
 on:
-  # push:
-  #   branches:
-  #     - master
-  workflow_dispatch:
-  # repository_dispatch:
-  # schedule:
-  #   - cron: '20 */2 * * *'  # 每3小时执行一次
+  push:
+    branches:
+      - master
+  # pull_request:
+  #   types: [opened, reopened, synchronize, closed]
 
 jobs:
-  deploy-uffizzi-preview:
-    name: Use Remote Workflow to Preview on Uffizzi
+  deploy:
+    name: Deploy to Uffizzi on Push
+    if: ${{ github.event_name == 'push' }}
     uses: UffizziCloud/preview-action/.github/workflows/reusable.yaml@v2
     with:
-      compose-file-cache-key: '0ad5e9a54f95e41607c714a39e030a63'
+      compose-file-cache-key: ""
       compose-file-cache-path: docker-compose.uffizzi.yml
-      server: https://app.uffizzi.com
+      server: https://app.uffizzi.com/
     permissions:
       contents: read
       pull-requests: write
