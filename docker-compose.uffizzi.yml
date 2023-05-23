@@ -8,7 +8,9 @@ x-uffizzi:
     timeout: 10s
     unhealthy_threshold: 3
     healthy_threshold: 1
-
+  continuous_previews:
+    delete_preview_after: 720h
+    
 services:
   app:
     build: .
@@ -16,7 +18,7 @@ services:
       replicas: 4
       resources:
         limits:
-          memory: 1000M
+          memory: 4000M
     restart: always
     environment:
       API_HOST: "https://v2.adorabletoad.tk"
