@@ -16,7 +16,7 @@ services:
       replicas: 4
       resources:
         limits:
-          memory: 1024M
+          memory: 1000M
     restart: always
     environment:
       API_HOST: "https://v2.adorabletoad.tk"
